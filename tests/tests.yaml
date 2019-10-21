@@ -2,6 +2,8 @@
       name: "os-web-server"
       arguments:
           auto_remove: True
+          environment:
+              BOOTSTRAP: "false"
           network_mode: "host"
   tests:
     - name: "check web server works"
