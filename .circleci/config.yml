@@ -1,0 +1,16 @@
+version: 2
+jobs:
+    build:
+        machine: True
+        working_directory: ~/os-web-server
+        steps:
+          - checkout
+          - run:
+                name: install dependencies
+                command: tests/install-dependencies
+          - run:
+                name: setup environment
+                command: tests/setup-environment
+          - run:
+                name: run tests
+                command: tests/run-tests
