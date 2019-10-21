@@ -1,0 +1,13 @@
+- container:
+      name: "os-web-server"
+      arguments:
+          auto_remove: True
+          network_mode: "host"
+  tests:
+    - name: "check web server works"
+      command: "wget http://localhost/index.html"
+      exit-code: 0
+      expected-error: "200 OK"
+      files:
+        - path: "index.html"
+          exists: True
