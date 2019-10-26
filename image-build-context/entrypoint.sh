@@ -12,6 +12,7 @@ then
 fi
 
 # copy kickstart files to the web server
+mkdir /usr/local/apache2/htdocs/kickstart-files/
 cp /conf/*.cfg /usr/local/apache2/htdocs/kickstart-files/
 
 exec httpd-foreground
