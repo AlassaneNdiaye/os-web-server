@@ -1,15 +1,18 @@
-- container:
-      name: "os-web-server"
-      arguments:
-          auto_remove: True
-          environment:
-              BOOTSTRAP: "false"
-          network_mode: "host"
+- application:
+    name: "os-web-server"
+    type: "docker"
+    arguments:
+      image: "os-web-server"
+      auto_remove: True
+      environment:
+        BOOTSTRAP: "false"
+      network_mode: "host"
   tests:
-    - name: "check web server works"
-      command: "wget http://localhost/index.html"
-      exit-code: 0
-      expected-error: "200 OK"
-      files:
-        - path: "index.html"
-          exists: True
+  - name: "check web server works"
+    command: "wget http://localhost/index.html"
+    environment: "external"
+    exit-code: 0
+    expected-error: "200 OK"
+    files:
+    - path: "index.html"
+      exists: True
